@@ -7,7 +7,7 @@ BG_COLOR = "black"
 TXT_COLOR1 = "white"
 FONT = "Helvetica"
 LBL_SIZE = 20
-COLUMNS = 4
+COLUMNS = 5
 
 class Screen(tk.Frame):
     def __init__(self, parent):
@@ -23,7 +23,7 @@ class Screen(tk.Frame):
                                 fg = TXT_COLOR1,
                                 activebackground = TXT_COLOR1,
                                 activeforeground = BG_COLOR)
-        self.btn1.grid(row = 0, column = 3)
+        self.btn1.grid(row = 0, column = 2)
         self.lbl1 = tk.Label(self,
                                 text = """Welcome to practice mode
 Try to play the chord shown on the screen
