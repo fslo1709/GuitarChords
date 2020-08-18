@@ -6,6 +6,7 @@ import memorize as win4
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 500
+SCREEN_POSITION = 50
 BG_COLOR = "black"
 TXT_COLOR1 = "white"
 FONT = "Helvetica"
@@ -14,7 +15,7 @@ LBL_SIZE = 20
 class mainApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
-        self.geometry(f"{SCREEN_WIDTH}x{SCREEN_HEIGHT}")
+        self.geometry(f"{SCREEN_WIDTH}x{SCREEN_HEIGHT}+{SCREEN_POSITION}+{SCREEN_POSITION}")
         self.title("Guitar Chords")
         self.configure(background = BG_COLOR)
         self.tScreen = Screen(self)
@@ -59,7 +60,7 @@ Select one of the options to continue
 
     def open_frame1(self):
         self.practiceWdw = tk.Toplevel(self.root)
-        self.practiceWdw.geometry(f"{SCREEN_WIDTH}x{SCREEN_HEIGHT}")
+        self.practiceWdw.geometry(f"{win1.SCREEN_WIDTH}x{win1.SCREEN_HEIGHT}+{win1.SCREEN_POSITION}+{win1.SCREEN_POSITION}")
         self.practiceWdw.title("Practice Mode")
         self.practiceWdw.configure(background = win1.BG_COLOR)
         self.app1 = win1.Screen(self.practiceWdw)
@@ -79,4 +80,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print("Hello")

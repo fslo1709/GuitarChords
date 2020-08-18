@@ -1,8 +1,12 @@
+#from PIL import Image as Img
+from PIL import ImageTk as ImgTK
 import tkinter as tk
 import main as mainwin
 
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 500
+SCREEN_HEIGHT = 600
+SCREEN_POSITION = 50
+IMG_SIZE = 400
 BG_COLOR = "black"
 TXT_COLOR1 = "white"
 FONT = "Helvetica"
@@ -31,4 +35,16 @@ Press Next to get a new chord""",
                                 font = (FONT, LBL_SIZE),
                                 bg = BG_COLOR,
                                 fg = TXT_COLOR1)
-        self.lbl1.grid(row = 1, column = 0, columnspan = COLUMNS)
+        self.lbl1.grid(row = 1, 
+                        column = 0, 
+                        columnspan = COLUMNS)
+        self.canvas = tk.Canvas(self,
+                                    width = IMG_SIZE,
+                                    height = IMG_SIZE)
+        self.canvas.grid(row = 2,
+                        column = 0,
+                        columnspan = COLUMNS)
+        self.img = ImgTK.Image.open("./images/mainCMaj.png")
+        self.img = self.img.resize((IMG_SIZE, IMG_SIZE), ImgTK.Image.ANTIALIAS)
+        self.img = ImgTK.PhotoImage(self.img)
+        self.canvas.create_image(0, 0, image = self.img, anchor = tk.NW)
